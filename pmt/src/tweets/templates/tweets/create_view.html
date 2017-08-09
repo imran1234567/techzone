@@ -4,5 +4,11 @@
 
 
 {% block content %}
-{% include "tweets/form.html" with form=form btn_title='Post' %}
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        <h1 style="text-align: center;">Create your post</h1>
+         {% include "tweets/form.html" with form=form btn_title='Post' %}
+    </div>
+</div>
+
 {% endblock content %}
