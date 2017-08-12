@@ -17,6 +17,7 @@ from .validators import validate_content
 
 class Tweet(models.Model):
     user        =   models.ForeignKey(settings.AUTH_USER_MODEL)
+    img         = models.FileField(null=True, blank=True)
     content     =   models.CharField(max_length=140, validators=[validate_content])
     code        =   models.CharField(max_length=400)
     update      =   models.DateTimeField(auto_now=True)

@@ -35,14 +35,13 @@
         <h1><span class="blink_me">< </span>{{ request.user}} <span class="blink_me">/></span></h1>
     </div>
     <div class="col-sm-9">
-        <!--{% if not request.GET.q %}-->
-            <!--<div class="row">-->
-                <!--<div class="col-sm-6">-->
-                    <!--{% include "tweets/form.html" with form=create_form action_url=create_url btn_title='Post' %}-->
-                <!--</div>-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <img src="http://127.0.0.1:8000/media/lop.jpg" alt="" class="img-responsive" style="width: 900px; height: 300px;">
+                </div>
 
-            <!--</div>-->
-        <!--{% endif %}-->
+            </div>
+        <hr>
 {% for object in object_list %}
     <div class="media">
   <div class="media-left">
