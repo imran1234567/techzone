@@ -32,7 +32,7 @@
 
 <div class="row">
     <div class="col-sm-3 thumbnail" style="background-color: #2b669a; font-size: 40px; text-align: center; color: white;">
-        <h1>{{ request.user}}</h1>
+        <h1><span class="blink_me">< </span>{{ request.user}} <span class="blink_me">/></span></h1>
     </div>
     <div class="col-sm-9">
         <!--{% if not request.GET.q %}-->
@@ -43,7 +43,6 @@
 
             <!--</div>-->
         <!--{% endif %}-->
-        <hr>
 {% for object in object_list %}
     <div class="media">
   <div class="media-left">
@@ -53,7 +52,7 @@
         {% endif %}
     </a>
   </div>
-  <div class="media-body thumbnail " style="background-color:lightgrey;">
+  <div class="media-body thumbnail " style="background-color:white;">
       <h2 style="text-align: center; color: #283E4A;">{{ object.content }}</h2><br>
         <div class="thumbnail">
          <pre style="background-color: #2b669a; color: white;">{{ object.code }}</pre><br>
