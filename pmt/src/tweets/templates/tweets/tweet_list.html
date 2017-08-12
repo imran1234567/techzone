@@ -1,5 +1,29 @@
 {% extends "base.html" %}
 
+{% block script %}
+<script>
+    $(document).ready(function () {
+        console.log("working");
+
+
+
+        $.ajax({
+            url:"/api/tweet/",
+            method:"GET",
+            sucess:function(data) {
+                console.log(data)
+            },
+            error:function(data) {
+                console.log("error")
+                console.log(data)
+            }
+        })
+
+
+    });
+</script>
+{% endblock script %}
+
 {% block title %}Blogs | {{ block.super }}{% endblock title %}
 
 
@@ -11,11 +35,14 @@
         <h1>{{ request.user}}</h1>
     </div>
     <div class="col-sm-9">
-        {% if not request.GET.q %}
-            <div class="row">
-                    {% include "tweets/form.html" with form=create_form action_url=create_url btn_title='Post' %}
-            </div>
-        {% endif %}
+        <!--{% if not request.GET.q %}-->
+            <!--<div class="row">-->
+                <!--<div class="col-sm-6">-->
+                    <!--{% include "tweets/form.html" with form=create_form action_url=create_url btn_title='Post' %}-->
+                <!--</div>-->
+
+            <!--</div>-->
+        <!--{% endif %}-->
         <hr>
 {% for object in object_list %}
     <div class="media">
@@ -26,9 +53,13 @@
         {% endif %}
     </a>
   </div>
-  <div class="media-body">
-    {{ object.content }}<br>
+  <div class="media-body thumbnail " style="background-color:lightgrey;">
+      <h2 style="text-align: center; color: #283E4A;">{{ object.content }}</h2><br>
+        <div class="thumbnail">
+         <pre style="background-color: #2b669a; color: white;">{{ object.code }}</pre><br>
       via {{ object.user }} | {{ object.timestamp | timesince }} ago | <a href="{{ object.get_absolute_url }}">View</a>
+        </div>
+
   </div>
 </div>
 <hr>

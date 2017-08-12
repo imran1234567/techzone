@@ -4,11 +4,13 @@ from .models import Tweet
 
 class TweetModelForm(forms.ModelForm):
     content = forms.CharField(label='' ,widget=forms.Textarea(attrs={'placeholder':"Your post","class":"form-control"}))
+    code    = forms.CharField(label='', widget=forms.Textarea(attrs={'placeholder':"Write your code", "class":"form-control"}))
     class Meta:
         model = Tweet
         fields = [
             #"user",
-            "content"
+            "content",
+            "code"
         ]
 
     # def clean_content(self, *args, **kwargs):
